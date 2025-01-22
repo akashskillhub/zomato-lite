@@ -5,6 +5,7 @@ exports.getRiderOrders = asyncHandler(async (req, res) => {
     const result = await Order
         .find({ rider: req.user })
         .select("-rider -createdAt -updatedAt -__v")
+        .populate("customer", "name mobile address") // joins
         .populate("resturant", "name hero") // joins
         .populate("items.dish", "name type image price")
         .sort({ createdAt: -1 })
