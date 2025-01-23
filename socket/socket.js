@@ -5,6 +5,6 @@ const app = express()
 
 const httpServer = http.createServer(app)
 
-const io = new Server(httpServer, { cors: { origin: "*" } })
+const io = new Server(httpServer, { cors: "*" })
 
 module.exports = { io, app, httpServer }
